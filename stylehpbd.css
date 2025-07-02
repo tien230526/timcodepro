@@ -24,7 +24,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image:linear-gradient(var(--color-pink), var(--color-pink));
+    background: linear-gradient(135deg, #ffccd5 0%, #ff99c9 50%, #d1a8e3 100%);
 }
 #wrapper{
     position: relative;
@@ -188,7 +188,7 @@ body {
     border-radius: 50px;
     margin-top: 20px;
     font-family: "Sriracha", cursive;
-    
+
 }
 .date__of__birth{
     border: 3px solid var(--color-black);
@@ -559,7 +559,7 @@ body {
         opacity: 1;
         transform: scale(1);
     }
-    
+
 }
 .content__letter .left .heart_1{
     top: 90px;
