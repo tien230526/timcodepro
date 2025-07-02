@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trần Tiến</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" />
+    <link rel="stylesheet" href="./stylee.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <style>
+      .back-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(45deg, #ff7882, #ff4d6d);
+        box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+        text-decoration: none;
+        overflow: hidden;
+      }
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+      }
+      .back-button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+      .back-button:hover::before {
+        width: 200px;
+        height: 200px;
+      }
+      .back-button span {
+        position: relative;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      .audio-controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+      }
+      .audio-controls button {
+        padding: 5px 10px;
+        font-size: 1rem;
+        color: #fff;
+        background: #ff7882;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-left: 5px;
+      }
+      .audio-controls button:hover {
+        background: #ff4d6d;
+      }
+      .cake-note {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #ff4d6d;
+        margin-top: 10px;
+        font-family: 'Dancing Script', cursive;
+      }
+      .candle-count-display {
+        text-align: center;
+        font-size: 2rem;
+        color: #fff; /* Đổi thành màu trắng */
+        font-family: 'Pacifico', cursive;
+        margin-top: 70px; /* Dịch lên trên 1 chút, điều chỉnh giá trị nếu cần */
+      }
+    </style>
+  </head>
+  <body>
+    <a href="hpbd.html" class="back-button">
+      <span>Quay lại trang</span>
+    </a>
+    <div class="audio-controls">
+      <button onclick="document.getElementById('backgroundAudio').play()">Play</button>
+      <button onclick="document.getElementById('backgroundAudio').pause()">Pause</button>
+    </div>
+    <audio id="backgroundAudio" src="./hpd.mp3" loop autoplay></audio>
+    <div class="candle-count-display">
+      HAPPY BIRTHDAY ABCDABCD!
+    </div>
+    <div class="cake">
+      <div id="candleCount" style="display:none;"></div>
+      <div class="plate"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-top"></div>
+      <div class="icing"></div>
+      <div class="drip drip1"></div>
+      <div class="drip drip2"></div>
+      <div class="drip drip3"></div>
+    </div>
+    <div class="cake-note">
+      Bấm vào bánh kem và thử thổi nến xem, có bất ngờ đó (thổi bằng miệng !!!)
+    </div>
+    <div class="footer">
+      Developed By: Trần Tiến | Lưu ý: nhớ bật mic để thổi nến (PLAY ĐỂ BẬT NHẠC <> PAUSE ĐỂ TẮT NHẠC) 
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+    <script>
+      // Cố gắng phát âm thanh tự động khi trang tải
+      document.addEventListener("DOMContentLoaded", function() {
+        const audio = document.getElementById("backgroundAudio");
+        audio.autoplay = true; // Đảm bảo autoplay được kích hoạt
+        audio.play().catch(error => {
+          console.log("Trình duyệt chặn tự phát âm thanh. Vui lòng nhấn Play.", error);
+          // Hiển thị thông báo cho người dùng nếu cần
+          alert("Vui lòng nhấn Play để phát nhạc!");
+        });
+      });
+    </script>
+  </body>
+</html>
